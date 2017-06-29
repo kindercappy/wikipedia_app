@@ -1,0 +1,1 @@
+This is a Wikipedia search App which is built with <3 from KinderPreet Singh for the freeCodeCamp project.
