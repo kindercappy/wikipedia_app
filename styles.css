@@ -71,7 +71,7 @@ input:focus {
   /* background: linear-gradient(#333933, #222922); */
   border-color: #393;
   box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
-  color: #efe;
+  /* color: #efe; */
   outline: none;
 
 }
@@ -81,18 +81,18 @@ input:focus::-webkit-input-placeholder {
 }
 
 input:focus:-moz-placeholder {
-  color: #efe;
+  /* color: #efe; */
 }
 
-button {
+.feelingLucky{
   background: #222922;
   /* background: linear-gradient(#333, #222); */
-  box-sizing: content-box;
-  border: 1px solid #444;
-  border-left-color: #000;
-  border-radius: 0 5px 5px 0;
-  box-shadow: 0 2px 0 #000;
-  color: #fff;
+  /* box-sizing: content-box; */
+  border: 1px solid green;
+  /* border-left-color: #000; */
+  border-radius: 5px;
+  /* box-shadow: 0 2px 0 #000; */
+  color: white;
   /* display: block; */
   /* float: left; */
   font-family: 'Cabin', helvetica, arial, sans-serif;
@@ -104,22 +104,27 @@ button {
   /* padding: 0; */
   /* position: relative; */
   text-shadow: 0 -1px 0 #000;
+  text-decoration: none;
+  margin: 2px;
   /* width: 80px; */
 } 
 
-button:hover,
+.feelingLucky:hover,
 button:focus {
   /* background: #292929; */
   /* background: linear-gradient(#393939, #292929); */
   color: #5f5;
-  outline: none;
+  /* outline: none; */
+  text-decoration: none;
 }
 
-button:active {
+.feelingLucky:active {
   /* background: #292929; */
   /* background: linear-gradient(#393939, #292929); */
-  box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
-  top: 1px;
+  /* box-shadow: 0 1px 0 #000, inset 1px 0 1px #222; */
+  /* top: 1px; */
+  text-decoration: none;
+  color: lightgray;
 }
 
 @keyframes glow {

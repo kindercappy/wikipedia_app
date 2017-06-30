@@ -1,36 +1,38 @@
-//https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=India
-
 function loadData(e){
 	if(e.keyCode==13){
-		//alert('Yolo');
 		e.preventDefault();
 		var searchVal = ($(this).val());
-		//console.log(searchVal);
-		var baseUrl =  'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=';
+		var baseUrl =  'https://en.Wikipedia.org/w/api.php?action=opensearch&format=json&search=';
 		var fullUrl = baseUrl + searchVal;
 		var ul = $('ul');
+		//Clear the ul before another search
 		ul.text("");
 		console.log(fullUrl);
+		var weatherRequestTimedout = setTimeout(function(){
+			ul.append("<h1>Oops! couldn't fetch data...please check back later!</h1>");
+		},5000);
 		$.ajax({
 			url: fullUrl,
 			dataType: 'jsonp',
 			success: function(data){
-				// console.log(data[1]);
+				if (data !== "") {
+					clearTimeout(weatherRequestTimedout);
+				}
 				var listHeadArray = [];
 				var dataHeadArray = data[1];
 				var dataContentArray = data[2];
 				var dataLinkArray = data[3];
-				//Loop thru the array for Headings
+				//Loop thru the array for Content
 				if (data[1].length > 0) {
 					for(var i = 0; i < data[1].length; i++){
-						// var header = '<h4>' + dataHeadArray[i] + '</h4>';
-						// var content = '<p>' + dataContentArray[i] + '</p>';
-						// var links = '<a href="' + dataLinkArray[i] + '" target="_blank">' + header + content  + '</a>';
-						// var list = '<li>'+ links +'</li>';
 						var header = '<h4>' + dataHeadArray[i] + '</h4>';
 						var content = '<p>' + dataContentArray[i] + '</p>';
 						var list = '<li>' + header + content + '</li>';
 						var links = '<a target="_blank" href="' + dataLinkArray[i] + '">' + list + '</a>';
+						// console.log(data);
+						// if (links == "") {
+						// 	links = "<h1>Please search again!</h1>";
+						// }
 						listHeadArray.push(links);
 					}
 				}
@@ -41,11 +43,9 @@ function loadData(e){
 					opacity: 1,
 					width : '97%'
 				},800);
-				// console.log(list);
 			}
 		});
 	}
-	//return false;
 }
 
 $(document).ready(function(){
